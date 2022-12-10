@@ -19,6 +19,7 @@ var generateBtn = document.querySelector("#generate");
   var numbers = confirm ("Would you like your password to contain numbers in it?");
   var characters = confirm ("Would you like your password to contain special characters (!,@,#,etc) in it?");
 
+
   //  If statements for the array. Decides which array of characters 
   if (lowerCase) {
     selectedArray = selectedArray.concat(lowerArray);
@@ -32,6 +33,10 @@ var generateBtn = document.querySelector("#generate");
   if (characters) {
     selectedArray = selectedArray.concat(specialArray);
   }
+  if (!upperCase && !lowerCase && !numbers && !characters) {
+    window.alert("You must choose at least one of the options.");
+    return "Try again";
+  }
 
   // This loops takes the selected array, select random data, and then start to form a password
   for (var i = 0; i < passwordLength; i++) {
@@ -44,7 +49,7 @@ var generateBtn = document.querySelector("#generate");
 function getPasswordLength() {
   var clientsNumber = (prompt("Please enter a number between 8 and 128"));
   if (clientsNumber < 8 || clientsNumber > 128) {
-    alert("Invalid length of " + clientsNumber + " . Please enter a number between 8 - 128")
+    window.alert("Invalid length of " + clientsNumber + " . Please enter a number between 8 - 128")
     generatePassword();
   } 
   return clientsNumber;
