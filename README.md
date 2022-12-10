@@ -1,2 +1,3 @@
-# Project-3
-Week 3 Project 3
+# Password Generator Starter Code
+Stackoverflow
+w3schools
