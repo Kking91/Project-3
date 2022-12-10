@@ -35,7 +35,7 @@ var generateBtn = document.querySelector("#generate");
 
   // This loops takes the selected array, select random data, and then start to form a password
   for (var i = 0; i < passwordLength; i++) {
-    passwordArray += selectedArray[Math.floor(Math.random() * (selectedArray.length))];
+    passwordArray = passwordArray + selectedArray[Math.floor(Math.random() * (selectedArray.length))];
   }
 
   return passwordArray;
@@ -46,19 +46,13 @@ function getPasswordLength() {
   if (clientsNumber < 8 || clientsNumber > 128) {
     alert("Invalid length of " + clientsNumber + " . Please enter a number between 8 - 128")
     generatePassword();
-    return clientsNumber;
-  }
+  } 
+  return clientsNumber;
 }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  console.log(password);
-  if (!password) {
-
-    // no password generated, invalid prompts.
-    return;
-  }
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -68,5 +62,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-testestest
